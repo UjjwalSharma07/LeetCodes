@@ -1,5 +1,23 @@
 class Solution {
 public:
+    // Recursion
+    
+//     int recusion(vector<int>&coins,int target){
+//         if(target==0)
+//             return 0;
+//         if(target<0)
+//             return INT_MAX;
+        
+//         int mini = INT_MAX;
+//         for(int i=0; i<coins.size(); i++){
+//             int ans = recusion(coins,target-coins[i]);
+            
+//             if(ans != INT_MAX)
+//                mini = min(mini,1+ans);
+//         }
+//         return mini;
+//     }
+    
     // Memoazation Method
     
 //     int solveMem(vector<int>& coins,int target,vector<int>&dp){
