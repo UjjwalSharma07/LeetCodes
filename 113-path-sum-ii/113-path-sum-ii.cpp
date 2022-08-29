@@ -16,6 +16,7 @@ public:
             return;
         
         res.push_back(root->val);
+        // leaf node condition true ho + root ki value = target then store result in ans.
         if(!root->left && !root->right && root->val == target)
             ans.push_back(res);
        
