@@ -19,10 +19,10 @@ public:
 		int pow = 1;
 		for(int i = 0; i < num.size(); i++)
 		{
-			long long t = (num[i]-'0')*pow;
+			long long val = (num[i]-'0')*pow;
 			pow *= 2;
 			pow %= M;
-			ans += t;
+			ans += val;
 			ans %= M;
 		}
 		return ans%M;
