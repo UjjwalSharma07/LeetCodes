@@ -7,16 +7,16 @@ public:
         if(dp[i][j] != -1){
            return dp[i][j];
         }
-        int up = INT_MAX;
-        int left  = INT_MAX;
+        int down = INT_MAX;
+        int right = INT_MAX;
         
         if(i<grid.size()-1){
-            up = solve(i+1,j,grid,dp);
+            down = solve(i+1,j,grid,dp);
         }
         if(j<grid[0].size()-1){
-            left = solve(i,j+1,grid,dp);
+            right = solve(i,j+1,grid,dp);
         }
-        return dp[i][j] = min(up,left)+grid[i][j];
+        return dp[i][j] = min(down,right)+grid[i][j];
     }
     int minPathSum(vector<vector<int>>& grid) {
         int m = grid.size();
