@@ -1,4 +1,4 @@
-bool sub(string& pattern,string& text) {
+bool sub(const string& pattern, const string& text) {
     int i, j;
     for(i = 0, j = 0; i < text.size() && j < 3; ++i) {
         if(text[i] == pattern[j])
