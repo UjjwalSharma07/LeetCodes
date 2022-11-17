@@ -13,25 +13,21 @@ public:
 	// #define ll long long
 
 	ll countSubarray(int arr[], int n, int k) {
-	    long TotalSubArray = 0, Subarray = 0;
-
-        long count =0;
-
-        for(int i=0; i< n;  i++){
-
-            if(arr[i] <= k) count++;
-
-            else {
-
-                TotalSubArray += (count+1)*(n-i);
-
-                count = 0;
-
-            }
-
-        }
-
-        return TotalSubArray;
+	    // code here
+	    ll totalsubarray = (ll)n*(n+1)/2;
+	    ll cnt = 0;
+	    
+	    for(int i=0; i<n; i++){
+	        if(arr[i]<=k){
+	            cnt++;
+	        }
+	        else{
+	            totalsubarray = totalsubarray - (cnt*(cnt+1)/2);  // k se chote subarrays ko minus kr dia total m se
+	            cnt = 0;
+	        }
+	    }
+	    totalsubarray = totalsubarray - (cnt*(cnt+1)/2);
+	    return totalsubarray;
 	}
 };
 
