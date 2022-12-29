@@ -10,14 +10,10 @@ class Solution {
         // code here
         stack<int> st;
         for(auto x:ast){
-            if(st.empty()){
-                st.push(x);
+            if(x>0){
+                   st.push(x);
             }
             else{
-               if(x>0){
-                   st.push(x);
-               }
-               else{
                    while(!st.empty() && st.top()>0 && st.top()<abs(x)){
                        st.pop();
                    }
@@ -29,7 +25,6 @@ class Solution {
                        continue;
                    }
                    st.push(x);
-               }
             }
         }
         vector<int> ans;
