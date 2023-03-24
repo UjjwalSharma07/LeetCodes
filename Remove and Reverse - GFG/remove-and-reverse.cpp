@@ -7,37 +7,50 @@ using namespace std;
 //User function Template for C++
 class Solution {
   public:
-     string removeReverse(string s) {
-        vector<int> freq(26,0);
-        int i = 0, j = s.length()-1;
-        int cnt = 0;
-        for(char c : s) {
-            freq[c-'a']++;
+    string removeReverse(string S) {
+        // code here
+        unordered_map<char,int>mp;
+        for(auto i:S){
+            mp[i]++;
         }
+        int s=0;
+        int e=S.size()-1;
         
-        bool rev = false;
-        string a = "", b = "";
+        int dir =0;
         
-        while(i <= j) {
-            char c;
-            
-            if(rev) c = s[j--];
-            else c = s[i++];
-            
-            if(freq[c-'a'] > 1) {
-                freq[c-'a']--;
-                rev = !rev;
-                cnt++;
+        while(s<=e){
+            if(dir == 0){
+                if(mp[S[s]] == 1){
+                    s++;
+                }
+                else{
+                    mp[S[s]]--;
+                    S[s] = '#';
+                    s++;
+                    dir=1;
+                }
             }
-            else {
-                if(rev) b = c + b;
-                else a += c;
+            else{
+                if(mp[S[e]] == 1){
+                    e--;
+                }
+                else{
+                    mp[S[e]]--;
+                    S[e]='#';
+                    e--;
+                    dir =0;
+                }
             }
         }
-        
-        s = a + b;
-        if(cnt&1) reverse(s.begin(),s.end());
-        return s;
+        string ans="";
+        for(auto i:S){
+            if(i != '#')
+                ans.push_back(i);
+        }
+        if(dir == 1){
+            reverse(ans.begin(),ans.end());
+        }
+        return ans;
     }
 };
 
