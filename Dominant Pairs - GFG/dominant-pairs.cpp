@@ -19,7 +19,6 @@ public:
         while(true){
             if(arr[i]>=5*arr[j]){
                 count=count+j-(n/2)+1;
-              
                 i--;
             }
             else if(arr[i]<5*arr[j]){
